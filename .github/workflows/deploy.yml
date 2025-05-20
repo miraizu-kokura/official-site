@@ -10,6 +10,12 @@ on:
    - stg
    - main
 
+# ワークフロー全体の権限設定
+permissions:
+ contents: read # コードの読み取り権限
+ pages: write # GitHub Pagesへの書き込み権限
+ id-token: write # OIDCトークン発行に必要な権限（ここが重要！）
+
 jobs:
  # ステージング環境（Netlify）へのデプロイジョブ
  deploy_staging:
@@ -32,11 +38,11 @@ jobs:
    - name: Build site for Staging
      run: npm run build
 
-   - name: Install Netlify CLI # Netlify CLIをグローバルインストール
+   - name: Install Netlify CLI
      run: npm install netlify-cli -g
 
-   - name: Deploy to Netlify Staging # Netlify CLIを直接実行
-     run: netlify deploy --prod --dir=dist # --dir で出力ディレクトリを指定
+   - name: Deploy to Netlify Staging
+     run: netlify deploy --prod --dir=dist
      env:
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN_STG }}
       NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_STG }}
