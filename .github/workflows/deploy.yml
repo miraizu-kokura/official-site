@@ -49,7 +49,7 @@ jobs:
 
  # 本番環境（GitHub Pages）へのデプロイジョブ
  deploy_production_gh_pages:
-  if: github.event_name == 'push' && github.ref == 'refs/heads/main' || github.event_name == 'pull_request' && github.base_ref == 'main'
+  if: github.event_name == 'push' && github.ref == 'refs/heads/main'
   runs-on: ubuntu-latest
   environment:
    name: github-pages
