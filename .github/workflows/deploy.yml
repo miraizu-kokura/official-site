@@ -34,7 +34,7 @@ jobs:
      run: npm run build
 
    - name: Deploy to Netlify Staging
-     uses: netlify/actions/cli@v2
+     uses: netlify/actions/cli
      with:
       args: deploy --prod
       publish-dir: ./dist # 出力ディレクトリを _site から dist に変更
