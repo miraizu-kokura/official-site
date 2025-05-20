@@ -1,29 +1,76 @@
-name: Deploy to GitHub Pages
+name: CI/CD Pipeline
 
 on:
  push:
   branches:
+   - stg
+   - main
+ pull_request:
+  branches:
+   - stg
    - main
 
 jobs:
- build:
+ # ステージング環境（Netlify）へのデプロイジョブ
+ deploy_staging:
+  if: github.event_name == 'push' && github.ref == 'refs/heads/stg' || github.event_name == 'pull_request' && github.base_ref == 'stg'
   runs-on: ubuntu-latest
+  environment: Netlify-Staging
 
   steps:
-   - uses: actions/checkout@v3
-   - name: Setup Node.js
-     uses: actions/setup-node@v3
+   - name: Checkout code
+     uses: actions/checkout@v4
+
+   - name: Set up Node.js
+     uses: actions/setup-node@v4
      with:
-      node-version: 18
+      node-version: '20'
 
    - name: Install dependencies
-     run: npm install
+     run: npm ci
 
-   - name: Build site
+   - name: Build site for Staging
      run: npm run build
 
-   - name: Deploy to GitHub Pages
-     uses: peaceiris/actions-gh-pages@v3
+   - name: Install Netlify CLI # Netlify CLIをグローバルインストール
+     run: npm install netlify-cli -g
+
+   - name: Deploy to Netlify Staging # Netlify CLIを直接実行
+     run: netlify deploy --prod --dir=dist # --dir で出力ディレクトリを指定
+     env:
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN_STG }}
+      NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_STG }}
+
+ # 本番環境（GitHub Pages）へのデプロイジョブ
+ deploy_production_gh_pages:
+  if: github.event_name == 'push' && github.ref == 'refs/heads/main' || github.event_name == 'pull_request' && github.base_ref == 'main'
+  runs-on: ubuntu-latest
+  environment:
+   name: github-pages
+   url: ${{ steps.deployment.outputs.page_url }}
+
+  steps:
+   - name: Checkout code
+     uses: actions/checkout@v4
+
+   - name: Set up Node.js
+     uses: actions/setup-node@v4
      with:
-      github_token: ${{ secrets.GITHUB_TOKEN }}
-      publish_dir: ./_site
+      node-version: '20'
+
+   - name: Install dependencies
+     run: npm ci
+
+   - name: Build site for Production
+     run: npm run build
+
+   - name: Upload artifact for GitHub Pages
+     uses: actions/upload-pages-artifact@v3
+     with:
+      path: './dist'
+
+   - name: Deploy to GitHub Pages
+     id: deployment
+     uses: actions/deploy-pages@v4
+     with:
+      token: ${{ secrets.GITHUB_TOKEN }}
