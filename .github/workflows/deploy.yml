@@ -1,11 +1,11 @@
-name: CI/CD Pipeline # この名前がGitHub Rulesetsのステータスチェックで表示されます
+name: CI/CD Pipeline
 
 on:
  push:
   branches:
    - stg
    - main
- pull_request: # PRオープン時にもチェックが走るように追加
+ pull_request:
   branches:
    - stg
    - main
@@ -13,68 +13,64 @@ on:
 jobs:
  # ステージング環境（Netlify）へのデプロイジョブ
  deploy_staging:
-  # このジョブは、'stg' ブランチへのプッシュ時、または'stg'へのPR時に実行
   if: github.event_name == 'push' && github.ref == 'refs/heads/stg' || github.event_name == 'pull_request' && github.base_ref == 'stg'
   runs-on: ubuntu-latest
-  environment: Netlify-Staging # 環境名を定義（任意、設定推奨）
+  environment: Netlify-Staging
 
   steps:
    - name: Checkout code
-     uses: actions/checkout@v4 # アクションのバージョンをv4に更新
+     uses: actions/checkout@v4
 
    - name: Set up Node.js
-     uses: actions/setup-node@v4 # アクションのバージョンをv4に更新
+     uses: actions/setup-node@v4
      with:
-      node-version: '22' # Node.jsバージョンを20に更新 (またはあなたが使っている推奨バージョン)
+      node-version: '20'
 
    - name: Install dependencies
-     run: npm ci # npm install から npm ci に変更
+     run: npm ci
 
    - name: Build site for Staging
      run: npm run build
 
-   - name: Deploy to Netlify Staging
-     uses: netlify/actions/cli@v1
-     with:
-      args: deploy --prod
-      publish-dir: ./dist # 出力ディレクトリを _site から dist に変更
-      build-dir: .
+   - name: Install Netlify CLI # Netlify CLIをグローバルインストール
+     run: npm install netlify-cli -g
+
+   - name: Deploy to Netlify Staging # Netlify CLIを直接実行
+     run: netlify deploy --prod --dir=dist # --dir で出力ディレクトリを指定
      env:
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN_STG }}
       NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_STG }}
 
  # 本番環境（GitHub Pages）へのデプロイジョブ
  deploy_production_gh_pages:
-  # このジョブは、'main' ブランチへのプッシュ時、または'main'へのPR時に実行
   if: github.event_name == 'push' && github.ref == 'refs/heads/main' || github.event_name == 'pull_request' && github.base_ref == 'main'
   runs-on: ubuntu-latest
-  # needs: deploy_staging # オプション: stgデプロイ成功後に本番デプロイを実行したい場合（現在はコメントアウトでOK）
   environment:
-   name: github-pages # GitHub Pagesの環境名を指定
-   url: ${{ steps.deployment.outputs.page_url }} # デプロイ後にGitHub PagesのURLを環境変数として登録
+   name: github-pages
+   url: ${{ steps.deployment.outputs.page_url }}
 
   steps:
    - name: Checkout code
-     uses: actions/checkout@v4 # アクションのバージョンをv4に更新
+     uses: actions/checkout@v4
 
    - name: Set up Node.js
-     uses: actions/setup-node@v4 # アクションのバージョンをv4に更新
+     uses: actions/setup-node@v4
      with:
       node-version: '20'
 
    - name: Install dependencies
-     run: npm ci # npm install から npm ci に変更
+     run: npm ci
 
    - name: Build site for Production
      run: npm run build
 
    - name: Upload artifact for GitHub Pages
-     uses: actions/upload-pages-artifact@v3 # 新しいGitHub Pagesデプロイフローのアクション
+     uses: actions/upload-pages-artifact@v3
      with:
-      path: './dist' # 出力ディレクトリを _site から dist に変更
+      path: './dist'
 
    - name: Deploy to GitHub Pages
      id: deployment
-     uses: actions/deploy-pages@v4 # 新しいGitHub Pagesデプロイフローのアクション
+     uses: actions/deploy-pages@v4
      with:
-      token: ${{ secrets.GITHUB_TOKEN }} # GitHub Pages公式アクションは組み込みトークンを使用
+      token: ${{ secrets.GITHUB_TOKEN }}
