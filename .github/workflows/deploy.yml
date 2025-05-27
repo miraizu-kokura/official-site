@@ -19,7 +19,7 @@ permissions:
 jobs:
  # ステージング環境（Netlify）へのデプロイジョブ
  deploy_staging:
-  if: github.event_name == 'push' && github.ref == 'refs/heads/stg' || github.event_name == 'pull_request' && github.base_ref == 'stg'
+  if: (github.event_name == 'push' && github.ref == 'refs/heads/stg') || (github.event_name == 'pull_request' && github.base_ref == 'stg')
   runs-on: ubuntu-latest
   environment: Netlify-Staging
 
@@ -73,10 +73,8 @@ jobs:
    - name: Upload artifact for GitHub Pages
      uses: actions/upload-pages-artifact@v3
      with:
-      path: './dist'
+      path: dist
 
    - name: Deploy to GitHub Pages
      id: deployment
      uses: actions/deploy-pages@v4
-     with:
-      token: ${{ secrets.GITHUB_TOKEN }}
