@@ -1,0 +1,16 @@
+// color
+$white: #fff;
+$purple: #977cdb;
+
+// ここから
+.main-body {
+ font-family: 'futura-pt', 'futura-pt-bold', 'noto-sans-cjk-jp', sans-serif;
+ background: #fffbf2;
+ background: linear-gradient(153deg, rgba(255, 251, 242, 1) 0%, rgba(255, 245, 222, 1) 10%, rgba(255, 251, 242, 1) 20%, rgba(255, 245, 222, 1) 30%, rgba(255, 251, 242, 1) 40%, rgba(255, 245, 222, 1) 50%, rgba(255, 251, 242, 1) 60%, rgba(255, 245, 222, 1) 70%, rgba(255, 251, 242, 1) 80%, rgba(255, 245, 222, 1) 90%, rgba(255, 251, 242, 1) 100%);
+ height: 100vh;
+}
+
+// ヘッダー
+.header {
+ background: #ffffff;
+}

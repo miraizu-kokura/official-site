@@ -5,13 +5,16 @@
  "main": "index.js",
  "scripts": {
   "start": "eleventy --serve",
-  "build": "eleventy"
+  "build": "eleventy",
+  "sass": "sass src/assets/scss:src/assets/css --no-source-map --style=compressed",
+  "sass:watch": "sass --watch src/assets/scss:src/assets/css --no-source-map"
  },
  "keywords": [],
  "author": "",
  "license": "ISC",
  "devDependencies": {
-  "@11ty/eleventy": "^3.1.0"
+  "@11ty/eleventy": "^3.1.0",
+  "sass": "^1.89.2"
  },
  "dependencies": {
   "a-sync-waterfall": "^1.0.1",
