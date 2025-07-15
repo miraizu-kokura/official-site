@@ -1,16 +1,400 @@
 // color
 $white: #fff;
 $purple: #977cdb;
+$red: #fe3132;
+$background: #fff7e4;
+$color-text: #2e2e2e;
 
 // ここから
-.main-body {
+html {
+ // 基本フォントサイズ
+ font-size: 10px;
+}
+
+a {
+ color: $color-text;
+ text-decoration: none;
+}
+
+body {
  font-family: 'futura-pt', 'futura-pt-bold', 'noto-sans-cjk-jp', sans-serif;
  background: #fffbf2;
  background: linear-gradient(153deg, rgba(255, 251, 242, 1) 0%, rgba(255, 245, 222, 1) 10%, rgba(255, 251, 242, 1) 20%, rgba(255, 245, 222, 1) 30%, rgba(255, 251, 242, 1) 40%, rgba(255, 245, 222, 1) 50%, rgba(255, 251, 242, 1) 60%, rgba(255, 245, 222, 1) 70%, rgba(255, 251, 242, 1) 80%, rgba(255, 245, 222, 1) 90%, rgba(255, 251, 242, 1) 100%);
  height: 100vh;
+ font-size: 1rem;
 }
 
 // ヘッダー
 .header {
  background: #ffffff;
+ padding: 20px 50px;
+ display: flex;
+ flex-flow: row nowrap;
+ justify-content: space-between;
+ align-items: center;
+}
+
+.header-logo {
+ display: flex;
+ flex-flow: row nowarp;
+ justify-content: flex-start;
+ align-items: center;
+
+ .header-logo-img {
+  padding: 0 30px 0 0;
+ }
+
+ .sub-catch {
+  color: $purple;
+  font-size: 1.2rem;
+  padding: 0 0 0 30px;
+  position: relative;
+
+  &::before {
+   content: '';
+   position: absolute;
+   top: 50%;
+   left: 0;
+   transform: translate(0, -50%);
+   width: 1px;
+   height: 20px;
+   background: $purple;
+  }
+ }
+}
+
+.header-icon-menu {
+ display: flex;
+ flex-flow: row nowrap;
+ justify-content: space-between;
+ align-items: center;
+ width: 150px;
+}
+
+.header-hamburger {
+ width: 50px;
+ height: 50px;
+ position: relative;
+ border: none;
+ background: transparent;
+ cursor: pointer;
+ z-index: 2;
+
+ span {
+  position: absolute;
+  width: 50px;
+  height: 5px;
+  border-radius: 3px;
+  background: $red;
+  transition: 0.3s;
+
+  &:first-child {
+   top: 5px;
+   left: 0;
+  }
+
+  &:nth-child(2) {
+   top: 50%;
+   left: 0;
+   transform: translate(0, -50%);
+  }
+
+  &:last-child {
+   bottom: 5px;
+   left: 0;
+  }
+ }
+
+ &.is-open {
+  span {
+   &:first-child {
+    top: 50%;
+    transform: rotate(45deg) translate(0, -50%);
+   }
+
+   &:nth-child(2) {
+    display: none;
+   }
+
+   &:last-child {
+    bottom: 47%;
+    transform: rotate(135deg) translate(0, -50%);
+   }
+  }
+ }
+}
+
+.header-menu {
+ display: none;
+
+ &.is-active {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: $background;
+  width: 100vw;
+  height: 100vw;
+ }
+}
+
+.header-menu-box {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ width: 100%;
+ height: 100vh;
+}
+
+.header-menu-box-inner {
+ display: flex;
+ justify-content: center;
+ align-items: flex-start;
+ gap: 10%;
+ width: 100%;
+}
+
+.header-menu-list-box {
+ display: flex;
+ flex-direction: column;
+ gap: 20px;
+
+ &.is-sns {
+  align-items: center;
+  min-width: 460px;
+ }
+
+ &.is-sp {
+  display: none;
+ }
+}
+
+.header-menu-item {
+ font-size: 6.8rem;
+ display: flex;
+ flex-flow: column;
+ color: $purple;
+}
+
+.header-menu-num {
+ font-size: 3.4rem;
+ font-weight: bold;
+}
+
+.header-menu-jp {
+ font-size: 2rem;
+ margin: 10px 0 0 0;
+ font-weight: bold;
+}
+
+.header-sns-ttl {
+ color: $white;
+ background: $purple;
+ border-radius: 60px;
+ width: 110px;
+ height: 110px;
+ display: flex;
+ flex-flow: row nowrap;
+ justify-content: center;
+ align-items: center;
+ font-size: 2rem;
+}
+
+.header-sns-icon {
+ display: flex;
+ flex-flow: row nowrap;
+ gap: 16px;
+}
+
+.header-menu-contact-btn {
+ background: $red;
+ padding: 10px 20px 10px 10px;
+ border-radius: 50px;
+}
+
+.header-menu-btn-box {
+ display: flex;
+ flex-flow: row nowrap;
+ justify-content: space-between;
+ align-items: center;
+ font-size: 2.6rem;
+ color: $white;
+
+ .header-menu-icon {
+  background: $white;
+  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px 0 0;
+ }
+}
+
+@media screen and (max-width: 1160px) and (min-width: 768px) {
+ .header {
+  padding: 10px 20px;
+ }
+
+ .header-menu-box-inner {
+  gap: 5%;
+ }
+
+ .header-menu-item {
+  font-size: 3.6rem;
+ }
+
+ .header-menu-num {
+  font-size: 2.4rem;
+ }
+
+ .header-menu-jp {
+  font-size: 1.4rem;
+ }
+
+ .header-menu-btn-box {
+  font-size: 2rem;
+ }
+
+ .header-menu-list-box.is-sns {
+  min-width: initial;
+  min-width: none;
+ }
+}
+
+@media screen and (max-width: 767px) {
+ .header {
+  padding: 13px 20px;
+ }
+
+ .header-logo-img {
+  width: 102px;
+  height: 34px;
+ }
+
+ .sub-catch {
+  display: none;
+ }
+
+ .header-icon-menu {
+  width: 80px;
+ }
+
+ .header-insta-icon {
+  width: 30px;
+  height: 30px;
+ }
+
+ .header-hamburger {
+  width: 30px;
+  height: 30px;
+
+  span {
+   width: 30px;
+   height: 3px;
+  }
+ }
+
+ .header-menu-box-inner {
+  padding: 0 0 50px 0;
+ }
+
+ .header-menu-list-box {
+  &.is-pc {
+   display: none !important;
+  }
+ }
+
+ .header-menu-item {
+  font-size: 3.2rem;
+ }
+
+ .header-menu-num {
+  font-size: 1.2rem;
+ }
+
+ .header-menu-jp {
+  font-size: 1.2rem;
+  margin: 3px 0 0 0;
+ }
+
+ .header-menu-list-box.is-sns {
+  &.is-sp {
+   display: flex;
+   width: 100%;
+   padding: 50px 0 0 0;
+   position: relative;
+
+   &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 100px;
+    height: 1px;
+    background: $color-text;
+   }
+  }
+ }
+
+ .header-menu-box {
+  flex-flow: column;
+  align-items: center;
+ }
+
+ .header-mail-icon {
+  width: 22px;
+  height: 16px;
+ }
+
+ .header-menu-btn-box .header-menu-icon {
+  width: 30px;
+  height: 30px;
+ }
+
+ .header-menu-btn-box {
+  font-size: 1.8rem;
+ }
+
+ .header-menu-sns-box {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+ }
+
+ .header-sns-ttl {
+  width: 60px;
+  height: 60px;
+  font-size: 1.2rem;
+ }
+
+ .header-sns-icon {
+  gap: 20px;
+ }
+
+ .header-sns-line {
+  img {
+   width: 60px;
+   height: 60px;
+  }
+ }
+
+ .header-sns-insta {
+  img {
+   width: 60px;
+   height: 60px;
+  }
+ }
+
+ .header-sns-note {
+  img {
+   width: 60px;
+   height: 60px;
+  }
+ }
 }
