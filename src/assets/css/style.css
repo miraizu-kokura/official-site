@@ -719,6 +719,12 @@ body {
   flex-flow: column;
   align-items: center;
   padding: 0 40px 0 0;
+  width: 45%;
+}
+.trainer-box:nth-child(2) {
+  align-items: flex-start;
+  padding: 0;
+  width: 55%;
 }
 
 .trainer.section-box {
@@ -732,6 +738,7 @@ body {
 }
 .trainer .miraizu-supplement-box {
   margin: 30px 0 0 0;
+  max-width: 100%;
 }
 
 @media screen and (max-width: 1319px) {
@@ -813,6 +820,9 @@ body {
   }
   .trainer .section-container {
     align-items: flex-start;
+  }
+  .trainer-img {
+    max-width: 100%;
   }
 }
 @media screen and (max-width: 767px) {
@@ -1053,6 +1063,9 @@ body {
   .trainer-box {
     align-items: flex-start;
     padding: 0;
+    width: 100%;
+  }
+  .trainer-box:nth-child(2) {
     width: 100%;
   }
   .trainer-img {
