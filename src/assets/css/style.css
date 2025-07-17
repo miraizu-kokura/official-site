@@ -719,12 +719,12 @@ body {
   flex-flow: column;
   align-items: center;
   padding: 0 40px 0 0;
-  width: 45%;
+  width: 448px;
 }
 .trainer-box:nth-child(2) {
   align-items: flex-start;
   padding: 0;
-  width: 55%;
+  width: calc(100% - 408px);
 }
 
 .trainer.section-box {
@@ -733,7 +733,7 @@ body {
 .trainer .section-container {
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-end;
 }
 .trainer .miraizu-supplement-box {
@@ -780,6 +780,12 @@ body {
   }
   .course-supplement-item:not(:first-child) {
     margin: 0 0 0 10px;
+  }
+  .trainer-box {
+    width: 358px;
+  }
+  .trainer-box:nth-child(2) {
+    width: calc(100% - 318px);
   }
 }
 @media screen and (max-width: 1160px) and (min-width: 768px) {
