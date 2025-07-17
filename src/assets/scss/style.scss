@@ -784,12 +784,12 @@ body {
  flex-flow: column;
  align-items: center;
  padding: 0 40px 0 0;
- width: 45%;
+ width: 448px;
 
  &:nth-child(2) {
   align-items: flex-start;
   padding: 0;
-  width: 55%;
+  width: calc(100% - 408px);
  }
 }
 
@@ -801,7 +801,7 @@ body {
  .section-container {
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-end;
  }
 
@@ -861,6 +861,15 @@ body {
 
   &:not(:first-child) {
    margin: 0 0 0 10px;
+  }
+ }
+
+ // トレーナー紹介
+ .trainer-box {
+  width: 358px;
+
+  &:nth-child(2) {
+   width: calc(100% - 318px);
   }
  }
 }
