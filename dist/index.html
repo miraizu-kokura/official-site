@@ -459,87 +459,91 @@
       <span class="h2-jp">体験予約・お問い合わせ</span>
      </h2>
      <p class="contact-intro">体験のお申し込み、カウンセリングなど、お気軽にお問い合わせください。</p>
-     <form id="contactForm" action="https://script.google.com/macros/s/AKfycbzj0xXQgTSALhzq-vxJuqGqov137ff1X-dogcp3PgR4LQKlGgRGMg8uQ9-RsCAit8Me/exec" method="post" target="hidden_iframe">
+     <form id="contactForm" action="https://script.google.com/macros/s/AKfycbzj0xXQgTSALhzq-vxJuqGqov137ff1X-dogcp3PgR4LQKlGgRGMg8uQ9-RsCAit8Me/exec" method="post" target="hidden_iframe" class="contact-form">
       <div class="c-form__item">
-       <label class="c-form__label" for="field-name">お名前（フルネーム）<span class="c-form__required">必須</span></label>
+       <label class="c-form__label" for="field-name">お名前（フルネーム）<span class="c-form__required">※必須</span></label>
        <input name="name" class="c-form__input" id="field-name" placeholder="未来　太郎" type="text" required="required" />
       </div>
       <div class="c-form__item">
-       <label class="c-form__label" for="field-kana">お名前（かな）<span class="c-form__required">必須</span></label>
+       <label class="c-form__label" for="field-kana">お名前（かな）<span class="c-form__required">※必須</span></label>
        <input name="kana" class="c-form__input" id="field-kana" placeholder="みらい　たろう" type="text" required="required" />
       </div>
       <div class="c-form__item">
-       <label class="c-form__label" for="field-kana">性別<span class="c-form__required">必須</span></label>
-       <input name="gender" class="c-form__input" id="field-gender-male" type="radio" value="male" checked />男性 <input name="gender" class="c-form__input" id="field-gender-female" type="radio" value="female" />女性
+       <label class="c-form__label" for="field-kana">性別<span class="c-form__required">※必須</span></label>
+       <input name="gender" id="field-gender-male" type="radio" value="男性" checked />
+       <label class="c-form__radio-label" for="field-gender-male">男性</label>
+       <input name="gender" id="field-gender-female" type="radio" value="女性" />
+       <label class="c-form__radio-label" for="field-gender-female">女性</label>
       </div>
       <div class="c-form__item">
-       <label class="c-form__label" for="field-age">年齢<span class="c-form__required">必須</span></label>
-       <select name="age">
-        <option value="18under">18歳以下</option>
-        <option value="19">19歳</option>
-        <option value="20">20歳</option>
-        <option value="21">21歳</option>
-        <option value="22">22歳</option>
-        <option value="23">23歳</option>
-        <option value="24">24歳</option>
-        <option value="25">25歳</option>
-        <option value="26">26歳</option>
-        <option value="27">27歳</option>
-        <option value="28">28歳</option>
-        <option value="29">29歳</option>
-        <option value="30">30歳</option>
-        <option value="31">31歳</option>
-        <option value="32">32歳</option>
-        <option value="33">33歳</option>
-        <option value="34">34歳</option>
-        <option value="35">35歳</option>
-        <option value="36">36歳</option>
-        <option value="37">37歳</option>
-        <option value="38">38歳</option>
-        <option value="39">39歳</option>
-        <option value="40">40歳</option>
-        <option value="41">41歳</option>
-        <option value="42">42歳</option>
-        <option value="43">43歳</option>
-        <option value="44">44歳</option>
-        <option value="45">45歳</option>
-        <option value="46">46歳</option>
-        <option value="47">47歳</option>
-        <option value="48">48歳</option>
-        <option value="49">49歳</option>
-        <option value="50">50歳</option>
-        <option value="51">51歳</option>
-        <option value="52">52歳</option>
-        <option value="53">53歳</option>
-        <option value="54">54歳</option>
-        <option value="55">55歳</option>
-        <option value="56">56歳</option>
-        <option value="57">57歳</option>
-        <option value="58">58歳</option>
-        <option value="59">59歳</option>
-        <option value="60">60歳</option>
-        <option value="61">61歳</option>
-        <option value="62">62歳</option>
-        <option value="63">63歳</option>
-        <option value="64">64歳</option>
-        <option value="65over">65歳以上</option>
+       <label class="c-form__label" for="field-age">年齢<span class="c-form__required">※必須</span></label>
+       <select name="age" class="c-form__select">
+        <option value="18歳以下">18歳以下</option>
+        <option value="19歳">19歳</option>
+        <option value="20歳">20歳</option>
+        <option value="21歳">21歳</option>
+        <option value="22歳">22歳</option>
+        <option value="23歳">23歳</option>
+        <option value="24歳">24歳</option>
+        <option value="25歳">25歳</option>
+        <option value="26歳">26歳</option>
+        <option value="27歳">27歳</option>
+        <option value="28歳">28歳</option>
+        <option value="29歳">29歳</option>
+        <option value="30歳">30歳</option>
+        <option value="31歳">31歳</option>
+        <option value="32歳">32歳</option>
+        <option value="33歳">33歳</option>
+        <option value="34歳">34歳</option>
+        <option value="35歳">35歳</option>
+        <option value="36歳">36歳</option>
+        <option value="37歳">37歳</option>
+        <option value="38歳">38歳</option>
+        <option value="39歳">39歳</option>
+        <option value="40歳">40歳</option>
+        <option value="41歳">41歳</option>
+        <option value="42歳">42歳</option>
+        <option value="43歳">43歳</option>
+        <option value="44歳">44歳</option>
+        <option value="45歳">45歳</option>
+        <option value="46歳">46歳</option>
+        <option value="47歳">47歳</option>
+        <option value="48歳">48歳</option>
+        <option value="49歳">49歳</option>
+        <option value="50歳">50歳</option>
+        <option value="51歳">51歳</option>
+        <option value="52歳">52歳</option>
+        <option value="53歳">53歳</option>
+        <option value="54歳">54歳</option>
+        <option value="55歳">55歳</option>
+        <option value="56歳">56歳</option>
+        <option value="57歳">57歳</option>
+        <option value="58歳">58歳</option>
+        <option value="59歳">59歳</option>
+        <option value="60歳">60歳</option>
+        <option value="61歳">61歳</option>
+        <option value="62歳">62歳</option>
+        <option value="63歳">63歳</option>
+        <option value="64歳">64歳</option>
+        <option value="65歳以上">65歳以上</option>
        </select>
       </div>
       <div class="c-form__item">
-       <label class="c-form__label" for="field-mail">メールアドレス<span class="c-form__required">必須</span></label>
+       <label class="c-form__label" for="field-mail">メールアドレス<span class="c-form__required">※必須</span></label>
        <input name="email" class="c-form__input" id="field-mail" placeholder="sample@gmail.com" type="email" required="required" />
       </div>
       <div class="c-form__item">
-       <label class="c-form__label" for="field-tel">電話番号<span class="c-form__required">必須</span></label>
+       <label class="c-form__label" for="field-tel">電話番号<span class="c-form__required">※必須</span></label>
        <input name="tel" class="c-form__input" id="field-tel" placeholder="00012345678" type="text" required="required" />
       </div>
       <div class="c-form__item">
+       <label class="c-form__label" for="field-tel">お問い合わせ種別<span class="c-form__required">※必須</span></label>
        <input name="kind" id="field-kind-counseling" type="radio" value="counseling" checked />
-       <label for="field-kind-counseling">カウンセリング予約のみ</label>
+       <label class="c-form__radio-label" for="field-kind-counseling">カウンセリング予約のみ</label>
        <input name="kind" id="field-kind-experience" type="radio" value="experience" />
-       <label for="field-kind-experience">カウンセリングと体験予約</label>
+       <label class="c-form__radio-label" for="field-kind-experience">カウンセリングと体験予約</label>
        <input name="kind" id="field-kind-other" type="radio" value="other" />
-       <label for="field-kind-other">その他</label>
+       <label class="c-form__radio-label" for="field-kind-other">その他</label>
       </div>
       <div class="c-form__item">
        <label class="c-form__label" for="field-message">お問い合わせ内容詳細</label>
@@ -551,6 +555,66 @@
      </form>
     </div>
    </section>
+   <section class="map" id="map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3312.6050042078305!2d130.8823356!3d33.87406920000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3543bf73c3ae561b%3A0x715b5a3cf73cc75e!2z44OR44O844K944OK44Or44K444OgIOODn-ODqeOCpOOCug!5e0!3m2!1sja!2sjp!4v1753287965036!5m2!1sja!2sjp" width="100%" height="450" style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="map-iframe"></iframe>
+   </section>
+   <footer>
+    <div class="shop-data section-container">
+     <dl class="shop-info-box">
+      <div class="info-mass">
+       <dt>店舗名</dt>
+       <dd>パーソナルジム ミライズ</dd>
+      </div>
+      <div class="info-mass">
+       <dt>住所</dt>
+       <dd>
+        〒802-0084<br />
+        福岡県北九州市小倉北区香春口２丁目１０−８ 足立興産ビル 101号
+       </dd>
+      </div>
+      <div class="info-mass">
+       <dt>営業時間</dt>
+       <dd>9:00〜22:00</dd>
+      </div>
+      <div class="info-mass">
+       <dt>休日</dt>
+       <dd>不定休</dd>
+      </div>
+      <div class="info-mass">
+       <dt>電話番号</dt>
+       <dd>090-7460-4372</dd>
+      </div>
+      <div class="info-mass">
+       <dt>最寄駅</dt>
+       <dd>北九州モノレール 香春口三萩野駅 徒歩3分</dd>
+      </div>
+     </dl>
+     <div class="sns-box">
+      <h3 class="sns-title">公式SNS</h3>
+      <a href="https://line.me/R/ti/p/@312czari" target="_blank" class="footer-sns-line">
+       <img src="/images/line_QR_icon.png" alt="公式LINE" width="110" height="110" />
+      </a>
+      <a href="https://www.instagram.com/miraizu_personalgym_kokura" target="_blank" class="footer-sns-insta">
+       <img src="/images/footer_insta_icon.png" alt="公式インスタグラム" width="110" height="110" />
+      </a>
+      <a href="https://note.com/modern_dunlin503" target="_blank" class="footer-sns-note">
+       <img src="/images/note_icon.png" alt="公式ブログ" width="110" height="110" />
+      </a>
+     </div>
+    </div>
+    <ul class="footer-menu">
+     <li class="footer-menu-item">
+      <a href="#concept">コンセプト</a>
+     </li>
+     <li class="footer-menu-item"><a href="#course">コース・料金</a></li>
+     <li class="footer-menu-item"><a href="#trainer">トレーナー紹介</a></li>
+     <li class="footer-menu-item">お客様の声（準備中）</li>
+     <li class="footer-menu-item"><a href="#faq">よくある質問</a></li>
+     <li class="footer-menu-item"><a href="#contact">体験予約・お問い合わせ</a></li>
+     <li class="footer-menu-item"><a href="#map">アクセス</a></li>
+    </ul>
+    <img src="/images/logo.svg" alt="北九州市のパーソナルトレーニングジム ミライズ" class="footer-logo" width="200" height="66" />
+   </footer>
   </main>
   <iframe name="hidden_iframe" id="hidden_iframe" style="display: none"></iframe>
   <script>
