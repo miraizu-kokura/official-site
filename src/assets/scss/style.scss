@@ -858,7 +858,7 @@ body {
 // よくある質問
 .faq {
  &.section-box {
-  padding: 0;
+  padding: 0 0 160px 0;
  }
 }
 
@@ -938,12 +938,199 @@ body {
 // お問い合わせ
 .contact {
  background: $red;
+ padding: 160px 0;
 }
 
 .contact-intro {
  font-size: 1.4rem;
  color: $white;
  margin: 0 0 30px 0;
+}
+
+//// コンタクトフォーム
+.contact-form {
+ background: $white;
+ padding: 50px 30px;
+ border-radius: 20px;
+ text-align: center;
+}
+
+.c-form__item {
+ text-align: left;
+ max-width: 500px;
+ display: block;
+ width: 100%;
+ margin: 0 auto;
+
+ &:not(:last-child) {
+  margin-bottom: 20px;
+ }
+}
+
+.c-form__label {
+ font-size: 1.6rem;
+ font-weight: bold;
+ margin: 0 0 5px 0;
+ display: block;
+ color: $color-text;
+}
+
+.c-form__required {
+ display: block;
+ color: $red;
+ font-size: 1.2rem;
+}
+
+.c-form__input {
+ max-width: 484px;
+ width: 100%;
+ font-size: 1.6rem;
+ padding: 8px;
+}
+
+.c-form__radio-label {
+ font-size: 1.6rem;
+}
+
+.c-form__select {
+ font-size: 1.6rem;
+ padding: 8px 20px 8px 8px;
+}
+
+.contact {
+ textarea {
+  min-height: 160px;
+ }
+}
+
+button[type='submit'] {
+ background: $red;
+ border: none;
+ padding: 10px 30px;
+ border-radius: 30px;
+ color: $white;
+ font-size: 2rem;
+ font-weight: bold;
+ max-width: 500px;
+ width: 100%;
+ margin: 50px 0 0 0;
+}
+
+// footer
+footer {
+ padding: 50px 0 100px 0;
+ text-align: center;
+}
+
+.shop-data {
+ display: flex;
+ flex-flow: row nowrap;
+ justify-content: flex-start;
+ align-items: center;
+}
+
+.info-mass {
+ display: flex;
+ align-items: flex-start;
+
+ &:not(:last-child) {
+  margin: 0 0 10px 0;
+ }
+}
+
+.shop-info-box {
+ width: 55%;
+ padding: 0 5% 0 0;
+ margin: 0 0 50px 0;
+
+ dt {
+  font-size: 1.6rem;
+  color: $white;
+  background: $purple;
+  max-width: 150px;
+  width: 23%;
+  height: 22px;
+  text-align: center;
+  margin: 0 10px 0 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+ }
+
+ dd {
+  font-size: 1.6rem;
+  text-align: left;
+  width: 77%;
+ }
+}
+
+.sns-box {
+ display: flex;
+ flex-flow: row nowrap;
+ justify-content: center;
+ align-items: center;
+ gap: 20px;
+ min-width: 500px;
+ width: 45%;
+}
+
+.sns-title {
+ display: flex;
+ justify-content: space-around;
+ align-items: center;
+ width: 110px;
+ height: 110px;
+ background: $purple;
+ color: $white;
+ font-size: 2rem;
+ font-weight: bold;
+ border-radius: 100px;
+}
+
+.footer-menu {
+ display: flex;
+ flex-flow: row wrap;
+ justify-content: center;
+ align-items: center;
+ padding: 50px 0 0 0;
+ border-top: 1px solid $gold;
+}
+
+.footer-menu-item {
+ font-size: 1.6rem;
+
+ &:not(:last-child) {
+  padding: 0 10px 0 0;
+  position: relative;
+
+  &::before {
+   content: '';
+   position: absolute;
+   top: 4px;
+   right: 0;
+   width: 1px;
+   height: 1.6rem;
+   background: $color-text;
+  }
+ }
+
+ &:not(:first-child) {
+  padding-left: 10px;
+ }
+
+ a {
+  opacity: 1;
+  transition: 0.3s;
+
+  &:hover {
+   opacity: 0.6;
+  }
+ }
+}
+
+.footer-logo {
+ margin: 100px 0 0 0;
 }
 
 @media screen and (max-width: 1319px) {
@@ -1095,6 +1282,48 @@ body {
 
  .trainer-img {
   max-width: 100%;
+ }
+}
+
+@media screen and (max-width: 1000px) {
+ .info-mass {
+  flex-flow: column;
+
+  &:not(:last-child) {
+   margin: 0;
+  }
+ }
+
+ .shop-info-box {
+  dt {
+   width: 100%;
+   max-width: 100%;
+  }
+
+  dd {
+   width: 100%;
+   background: $white;
+   padding: 10px;
+  }
+ }
+
+ .sns-box {
+  min-width: 380px;
+ }
+
+ .sns-title {
+  width: 80px;
+  height: 80px;
+  font-size: 1.4rem;
+ }
+
+ .footer-sns-line,
+ .footer-sns-insta,
+ .footer-sns-note {
+  img {
+   width: 80px;
+   height: 80px;
+  }
  }
 }
 
@@ -1467,6 +1696,67 @@ body {
    height: 10px;
    border-width: 2px;
   }
+ }
+
+ .faq {
+  &.section-box {
+   padding: 0 0 80px 0;
+  }
+ }
+
+ .map-iframe {
+  height: 400px;
+ }
+
+ // お問い合わせ
+ .contact {
+  &.section-box {
+   padding: 80px 0;
+  }
+ }
+
+ .contact-form {
+  padding: 20px;
+ }
+
+ .c-form__input {
+  width: calc(100% - 20px);
+ }
+
+ .sns-title {
+  width: 60px;
+  height: 60px;
+ }
+
+ .footer-sns-line,
+ .footer-sns-insta,
+ .footer-sns-note {
+  img {
+   width: 60px;
+   height: 60px;
+  }
+ }
+
+ .sns-box {
+  min-width: 100%;
+ }
+
+ // footer
+ .shop-data {
+  flex-flow: column;
+ }
+
+ .shop-info-box {
+  width: 100%;
+  padding: 0;
+
+  dd {
+   text-align: center;
+  }
+ }
+
+ .sns-box {
+  margin: 0 0 50px 0;
  }
 }
 

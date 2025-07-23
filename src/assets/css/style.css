@@ -776,7 +776,7 @@ body {
 }
 
 .faq.section-box {
-  padding: 0;
+  padding: 0 0 160px 0;
 }
 
 .faq-h3 {
@@ -846,12 +846,186 @@ body {
 
 .contact {
   background: #fe3132;
+  padding: 160px 0;
 }
 
 .contact-intro {
   font-size: 1.4rem;
   color: #fff;
   margin: 0 0 30px 0;
+}
+
+.contact-form {
+  background: #fff;
+  padding: 50px 30px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.c-form__item {
+  text-align: left;
+  max-width: 500px;
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+}
+.c-form__item:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.c-form__label {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin: 0 0 5px 0;
+  display: block;
+  color: #2e2e2e;
+}
+
+.c-form__required {
+  display: block;
+  color: #fe3132;
+  font-size: 1.2rem;
+}
+
+.c-form__input {
+  max-width: 484px;
+  width: 100%;
+  font-size: 1.6rem;
+  padding: 8px;
+}
+
+.c-form__radio-label {
+  font-size: 1.6rem;
+}
+
+.c-form__select {
+  font-size: 1.6rem;
+  padding: 8px 20px 8px 8px;
+}
+
+.contact textarea {
+  min-height: 160px;
+}
+
+button[type=submit] {
+  background: #fe3132;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 30px;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+  max-width: 500px;
+  width: 100%;
+  margin: 50px 0 0 0;
+}
+
+footer {
+  padding: 50px 0 100px 0;
+  text-align: center;
+}
+
+.shop-data {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.info-mass {
+  display: flex;
+  align-items: flex-start;
+}
+.info-mass:not(:last-child) {
+  margin: 0 0 10px 0;
+}
+
+.shop-info-box {
+  width: 55%;
+  padding: 0 5% 0 0;
+  margin: 0 0 50px 0;
+}
+.shop-info-box dt {
+  font-size: 1.6rem;
+  color: #fff;
+  background: #977cdb;
+  max-width: 150px;
+  width: 23%;
+  height: 22px;
+  text-align: center;
+  margin: 0 10px 0 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.shop-info-box dd {
+  font-size: 1.6rem;
+  text-align: left;
+  width: 77%;
+}
+
+.sns-box {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  min-width: 500px;
+  width: 45%;
+}
+
+.sns-title {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 110px;
+  height: 110px;
+  background: #977cdb;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+  border-radius: 100px;
+}
+
+.footer-menu {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 0 0 0;
+  border-top: 1px solid #eac688;
+}
+
+.footer-menu-item {
+  font-size: 1.6rem;
+}
+.footer-menu-item:not(:last-child) {
+  padding: 0 10px 0 0;
+  position: relative;
+}
+.footer-menu-item:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  right: 0;
+  width: 1px;
+  height: 1.6rem;
+  background: #2e2e2e;
+}
+.footer-menu-item:not(:first-child) {
+  padding-left: 10px;
+}
+.footer-menu-item a {
+  opacity: 1;
+  transition: 0.3s;
+}
+.footer-menu-item a:hover {
+  opacity: 0.6;
+}
+
+.footer-logo {
+  margin: 100px 0 0 0;
 }
 
 @media screen and (max-width: 1319px) {
@@ -964,6 +1138,37 @@ body {
   }
   .trainer-img {
     max-width: 100%;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .info-mass {
+    flex-flow: column;
+  }
+  .info-mass:not(:last-child) {
+    margin: 0;
+  }
+  .shop-info-box dt {
+    width: 100%;
+    max-width: 100%;
+  }
+  .shop-info-box dd {
+    width: 100%;
+    background: #fff;
+    padding: 10px;
+  }
+  .sns-box {
+    min-width: 380px;
+  }
+  .sns-title {
+    width: 80px;
+    height: 80px;
+    font-size: 1.4rem;
+  }
+  .footer-sns-line img,
+  .footer-sns-insta img,
+  .footer-sns-note img {
+    width: 80px;
+    height: 80px;
   }
 }
 @media screen and (max-width: 767px) {
@@ -1231,6 +1436,47 @@ body {
     width: 10px;
     height: 10px;
     border-width: 2px;
+  }
+  .faq.section-box {
+    padding: 0 0 80px 0;
+  }
+  .map-iframe {
+    height: 400px;
+  }
+  .contact.section-box {
+    padding: 80px 0;
+  }
+  .contact-form {
+    padding: 20px;
+  }
+  .c-form__input {
+    width: calc(100% - 20px);
+  }
+  .sns-title {
+    width: 60px;
+    height: 60px;
+  }
+  .footer-sns-line img,
+  .footer-sns-insta img,
+  .footer-sns-note img {
+    width: 60px;
+    height: 60px;
+  }
+  .sns-box {
+    min-width: 100%;
+  }
+  .shop-data {
+    flex-flow: column;
+  }
+  .shop-info-box {
+    width: 100%;
+    padding: 0;
+  }
+  .shop-info-box dd {
+    text-align: center;
+  }
+  .sns-box {
+    margin: 0 0 50px 0;
   }
 }
 @media screen and (max-width: 425px) {
