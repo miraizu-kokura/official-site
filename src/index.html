@@ -37,6 +37,10 @@
    })(document);
   </script>
  </head>
+ <script type="text/javascript">
+  let submitted = false;
+ </script>
+ <iframe name="hidden_iframe" id="hidden_iframe" style="display: none" onload="if(submitted){window.location='https://miraizu-kokura-stg.netlify.app/thanks.html';}"></iframe>
  <body class="main-body">
   <header class="header">
    <h1 class="header-logo">
@@ -217,7 +221,7 @@
         </h4>
         <ul class="course-list">
          <li class="course-list-item"><span class="course-yen">¥</span>9,000<span class="course-tax">（税抜）</span><span class="course-count">1回50分</span></li>
-         <li class="course-list-item"><span class="course-yen">¥</span>XX,XXX<span class="course-tax">（税抜）</span><span class="course-count">5回</span></li>
+         <!-- <li class="course-list-item"><span class="course-yen">¥</span>XX,XXX<span class="course-tax">（税抜）</span><span class="course-count">5回</span></li> -->
         </ul>
         <p class="course-attention">※回数によりさらに割引いたします。</p>
         <p class="course-explain">一人ひとりの目標や理想の身体に合わせて、ベストな回数・頻度を提案させていただきます。</p>
@@ -235,7 +239,7 @@
         </h4>
         <ul class="course-list">
          <li class="course-list-item"><span class="course-yen">¥</span>8,100<span class="course-tax">（税抜）</span><span class="course-count">月1回50分</span></li>
-         <li class="course-list-item"><span class="course-yen">¥</span>XX,XXX<span class="course-tax">（税抜）</span><span class="course-count">月2回</span></li>
+         <!-- <li class="course-list-item"><span class="course-yen">¥</span>XX,XXX<span class="course-tax">（税抜）</span><span class="course-count">月2回</span></li> -->
         </ul>
         <p class="course-attention">※回数によりさらに割引いたします。</p>
         <p class="course-explain">月1回から16回のコースまで、ご用意しております。</p>
@@ -245,30 +249,30 @@
         </ul>
        </div>
       </div>
-      <div class="course-card-box sub-course is-3block">
+      <div class="course-card-box sub-course is-2block">
        <div class="course-card">
         <h4 class="h4-course-title">
          トライアルコース
          <span>毎月数名様、女性限定！</span>
         </h4>
-        <ul class="course-list">
+        <ul class="course-list mb-30">
          <li class="course-list-item"><span class="course-yen">¥</span>7,000<span class="course-tax">（税抜）</span><span class="course-count">1回50分</span></li>
         </ul>
         <ul class="course-supplement">
          <li class="course-supplement-item">まずはお試しから始めたい方</li>
         </ul>
        </div>
-       <div class="course-card is-prepare">
+       <div class="course-card non-supplement">
+        <!-- 準備中の場合はis-prepareのclassをつけてください -->
         <h4 class="h4-course-title">
-         産後ママ応援コース
-         <span>体型・体調が気になる産後ママへ</span>
+         応援コース
+         <span>様々なケースの方々を応援します</span>
         </h4>
-       </div>
-       <div class="course-card is-prepare">
-        <h4 class="h4-course-title">
-         ブライダル集中コース
-         <span>ドレスが映える体へ短期集中サポート</span>
-        </h4>
+        <ul class="course-list course-postpartum-bridal">
+         <li class="course-list-item"><span class="course-yen">体型・体調が気になる</span><br />産後ママ応援コース</li>
+         <li class="course-list-item"><span class="course-yen">ドレスが映える体へ短期集中サポート</span><br />ブライダル集中コース</li>
+        </ul>
+        <p class="course-explain">回数券コースもしくは月額コースから、<span>10%割引+入会金無料</span>の応援サービスです。<br /><span class="course-explain-attention">※トライアルコースは除く</span></p>
        </div>
       </div>
      </div>
@@ -321,6 +325,232 @@
     </div>
    </section>
    <div class="section-partition-line"><span></span></div>
+   <section class="faq section-box" id="faq">
+    <div class="section-container">
+     <h2 class="h2-title">
+      <span class="h2-num">04</span>
+      Faq
+      <span class="h2-jp">よくある質問</span>
+     </h2>
+     <div class="faq-list-box">
+      <h3 class="faq-h3">
+       <img src="/images/beginner_icon.svg" alt="" width="40" height="40" class="faq-title-icon" />
+       初めての方・ご利用について
+      </h3>
+      <div class="faq-item">
+       <button class="faq-question">Q1. 運動が苦手ですが、大丈夫でしょうか？</button>
+       <div class="faq-answer">
+        <p>
+         もちろん大丈夫です！今まで「運動初心者」「運動が苦手」というお客様を多く担当している実績もございますので安心してご来店ください！<br />
+         今までの経験上からも運動が苦手な人は一人でのボディメイク成功が難しくなりがちですので是非一度正しいボディメイク方法を一緒に身に着けていきましょう！
+        </p>
+       </div>
+      </div>
+      <div class="faq-item">
+       <button class="faq-question">Q2. パーソナルトレーニングは初めてで不安です。</button>
+       <div class="faq-answer">
+        <p>
+         初めての挑戦は何事も不安がつきまとってきますよね。まず挑戦しようと思っている気持ち自体が素晴らしいです！<br />
+         ミライズでは全てのお客様に不安なく、楽しくボディメイクに取り組んで頂けるよう入会前のカウンセリング時、オーダーメイドでのプランニングを行っています。<br />
+         一人ひとりのライフスタイルに合わせ、寄り添ってのサポートを行っていますのでその不安も一緒に乗り越えさせてください！
+        </p>
+       </div>
+      </div>
+      <div class="faq-item">
+       <button class="faq-question">Q3. どんな服装で行けばいいですか？</button>
+       <div class="faq-answer">
+        <p>
+         どのような服装でも問題ございません。<br />
+         ウェア・シューズ・靴下・お飲み物・タオル等必要なものは全て店舗でご用意していますので、「身体を変えたいという気持ち」のみご持参で来店をお願い致します！
+        </p>
+       </div>
+      </div>
+     </div>
+     <div class="faq-list-box">
+      <h3 class="faq-h3">
+       <img src="/images/money_icon.svg" alt="" width="40" height="40" class="faq-title-icon" />
+       料金・支払いについて
+      </h3>
+      <div class="faq-item">
+       <button class="faq-question">Q4. 入会金や年会費はかかりますか？</button>
+       <div class="faq-answer">
+        <p>
+         入会金は通常22,000円頂戴していますが、新規オープンキャンペーン実施中のため0円で案内をしております！<br />
+         年会費がかかるコースはございませんが、月額コースをご契約の場合は毎月コース料金の引き落としが発生致します。
+        </p>
+       </div>
+      </div>
+      <div class="faq-item">
+       <button class="faq-question">Q5. 支払い方法は何がありますか？</button>
+       <div class="faq-answer">
+        <p>
+         クレジットカード、現金、銀行振込に対応しております。<br />
+         ご希望に合わせた支払方法をご利用くださいませ。
+        </p>
+       </div>
+      </div>
+      <div class="faq-item">
+       <button class="faq-question">Q6. 月額コースの途中解約はできますか？</button>
+       <div class="faq-answer">
+        <p>はい、可能です。コース終了希望月の前月末日までに申し出をお願い致します。（例：4月末退会の場合、3月31日までの申し出）</p>
+       </div>
+      </div>
+     </div>
+     <div class="faq-list-box">
+      <h3 class="faq-h3">
+       <img src="/images/bridal_icon.svg" alt="" width="40" height="40" class="faq-title-icon" />
+       産後・ブライダル・女性特有の不安
+      </h3>
+      <div class="faq-item">
+       <button class="faq-question">Q7. 子ども連れでも通えますか？</button>
+       <div class="faq-answer">
+        <p>
+         完全個室、キッズスペースもご用意していますので問題なく通えます。<br />
+         担当トレーナーも一児の父ですので、必要あればオムツ替え等サポート可能です！
+        </p>
+       </div>
+      </div>
+      <div class="faq-item">
+       <button class="faq-question">Q8. 産後いつから通えますか？</button>
+       <div class="faq-answer">
+        <p>
+         トレーニング自体は産後1ヶ月検診で問題ないと診断されてから、医師の許可を得てから始めることを推奨しています。<br />
+         運動が難しい場合でも適切な食事管理・日常の過ごし方のアドバイスから身体を変えていくことは可能ですので動き出せるタイミングでいつでもカウンセリングにお越しくださいませ。
+        </p>
+       </div>
+      </div>
+      <div class="faq-item">
+       <button class="faq-question">Q9. ブライダルコースはいつ頃から始めるのがベストですか？</button>
+       <div class="faq-answer">
+        <p>
+         短期的な変化は身体に負担が大きく、メンタル的な不調にも繋がりますので余裕を持って取り組むためにも早ければ早いほどベストです！<br />
+         「結婚式を行う」ことが決まった時点で一度カウンセリングにお越しくださいませ。一生に一度の晴れ舞台最高の身体で迎えられるようサポート致します！
+        </p>
+       </div>
+      </div>
+     </div>
+     <div class="faq-list-box">
+      <h3 class="faq-h3">
+       <img src="/images/reserve_icon.svg" alt="" width="40" height="40" class="faq-title-icon" />
+       予約・キャンセルについて
+      </h3>
+      <div class="faq-item">
+       <button class="faq-question">Q10. 予約はどのように取れば良いですか？</button>
+       <div class="faq-answer">
+        <p>
+         LINEでのやり取り、または来店時にご予約をお取りすることが可能です。<br />
+         一か月単位でお取りするお客様が多いですが、週単位や都度でのご予約取りもできますので希望日をトレーナーへお伝えください。
+        </p>
+       </div>
+      </div>
+      <div class="faq-item">
+       <button class="faq-question">Q11. キャンセルは可能ですか？</button>
+       <div class="faq-answer">
+        <p>
+         はい、キャンセルは可能です。回数の制限もございません。<br />
+         ただ一点、当日キャンセルに関しては一回分トレーニングチケット消化扱いとなってしまいますので、キャンセルのご連絡はお早目に宜しくお願い致します。
+        </p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="contact section-box" id="contact">
+    <div class="section-container">
+     <h2 class="h2-title is-white">
+      <span class="h2-num">05</span>
+      Contact
+      <span class="h2-jp">体験予約・お問い合わせ</span>
+     </h2>
+     <p class="contact-intro">体験のお申し込み、カウンセリングなど、お気軽にお問い合わせください。</p>
+     <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfXNWluvF9hJ1hVoGwj-iNKSPpqrZXDKyLmn9TIe74caLCZQw/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;" class="c-form" class="c-form">
+      <div class="c-form__item">
+       <label class="c-form__label" for="field-name">お名前（フルネーム）<span class="c-form__required">必須</span></label>
+       <input name="entry.1734008620" class="c-form__input" id="field-name" placeholder="未来　太郎" type="text" required="required" />
+      </div>
+      <div class="c-form__item">
+       <label class="c-form__label" for="field-kana">お名前（かな）<span class="c-form__required">必須</span></label>
+       <input name="entry.260144117" class="c-form__input" id="field-kana" placeholder="みらい　たろう" type="text" required="required" />
+      </div>
+      <div class="c-form__item">
+       <label class="c-form__label" for="field-kana">性別<span class="c-form__required">必須</span></label>
+       <input name="entry.598447434" class="c-form__input" id="field-sex" type="radio" name="sex" value="male" checked />男性 <input class="c-form__input" id="field-sex" type="radio" name="sex" value="female" />女性
+      </div>
+      <div class="c-form__item">
+       <label class="c-form__label" for="field-age">年齢<span class="c-form__required">必須</span></label>
+       <select name="entry.223100860">
+        <option value="18under">18歳以下</option>
+        <option value="19">19歳</option>
+        <option value="20">20歳</option>
+        <option value="21">21歳</option>
+        <option value="22">22歳</option>
+        <option value="23">23歳</option>
+        <option value="24">24歳</option>
+        <option value="25">25歳</option>
+        <option value="26">26歳</option>
+        <option value="27">27歳</option>
+        <option value="28">28歳</option>
+        <option value="29">29歳</option>
+        <option value="30">30歳</option>
+        <option value="31">31歳</option>
+        <option value="32">32歳</option>
+        <option value="33">33歳</option>
+        <option value="34">34歳</option>
+        <option value="35">35歳</option>
+        <option value="36">36歳</option>
+        <option value="37">37歳</option>
+        <option value="38">38歳</option>
+        <option value="39">39歳</option>
+        <option value="40">40歳</option>
+        <option value="41">41歳</option>
+        <option value="42">42歳</option>
+        <option value="43">43歳</option>
+        <option value="44">44歳</option>
+        <option value="45">45歳</option>
+        <option value="46">46歳</option>
+        <option value="47">47歳</option>
+        <option value="48">48歳</option>
+        <option value="49">49歳</option>
+        <option value="50">50歳</option>
+        <option value="51">51歳</option>
+        <option value="52">52歳</option>
+        <option value="53">53歳</option>
+        <option value="54">54歳</option>
+        <option value="55">55歳</option>
+        <option value="56">56歳</option>
+        <option value="57">57歳</option>
+        <option value="58">58歳</option>
+        <option value="59">59歳</option>
+        <option value="60">60歳</option>
+        <option value="61">61歳</option>
+        <option value="62">62歳</option>
+        <option value="63">63歳</option>
+        <option value="64">64歳</option>
+        <option value="65over">65歳以上</option>
+       </select>
+      </div>
+      <div class="c-form__item">
+       <label class="c-form__label" for="field-mail">メールアドレス<span class="c-form__required">必須</span></label>
+       <input name="entry.846158854" class="c-form__input" id="field-mail" placeholder="sample@gmail.com" type="email" required="required" />
+      </div>
+      <div class="c-form__item">
+       <label class="c-form__label" for="field-tel">電話番号<span class="c-form__required">必須</span></label>
+       <input name="entry.376489614" class="c-form__input" id="field-tel" placeholder="00012345678" type="text" required="required" />
+      </div>
+      <div class="c-form__item">
+       <label class="c-form__label" for="field-content">お問い合わせ内容<span class="c-form__required">必須</span></label>
+       <input name="entry.1554247335" class="c-form__input" id="field-content" type="radio" name="contact-content" value="counseling" checked />カウンセリング予約のみ <input class="c-form__input" id="field-counseling-experience" type="radio" name="contact-content" value="female" />カウンセリングと体験予約 <input class="c-form__input" id="field-other" type="radio" name="contact-content" value="female" />その他
+      </div>
+      <div class="c-form__item">
+       <label class="c-form__label" for="field-message">お問い合わせ内容詳細</label>
+       <textarea name="entry.918214343" class="c-form__input" id="field-message" placeholder="お問い合わせ内容"></textarea>
+      </div>
+      <div class="c-form__submit">
+       <button type="submit">送信する</button>
+      </div>
+     </form>
+    </div>
+   </section>
   </main>
  </body>
  <script src="/js/main.js"></script>

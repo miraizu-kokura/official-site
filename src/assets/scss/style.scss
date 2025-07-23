@@ -42,6 +42,10 @@ body {
  font-size: 13rem;
  color: $purple;
  margin: 0 0 80px 0;
+
+ &.is-white {
+  color: $white;
+ }
 }
 
 .h2-num {
@@ -532,7 +536,7 @@ body {
 .course {
  position: relative;
 
- .section-box {
+ &.section-box {
   padding: 0;
  }
 
@@ -579,7 +583,12 @@ body {
  background: $white;
  border-radius: 10px;
  border: 1px dotted $purple;
- padding: 20px;
+ padding: 20px 20px 70px 20px;
+ position: relative;
+
+ &.non-supplement {
+  padding: 20px;
+ }
 
  .course-card-img {
   &.is-pc {
@@ -620,6 +629,12 @@ body {
    font-weight: bold;
    letter-spacing: 2px;
   }
+ }
+}
+
+.course-list {
+ &.mb-30 {
+  margin: 0 0 30px 0;
  }
 }
 
@@ -695,7 +710,32 @@ body {
 .course-explain {
  font-size: 1.4rem;
  font-weight: bold;
- margin: 30px 0 0 0;
+ margin: 30px 0;
+
+ span {
+  color: $purple;
+
+  &.course-explain-attention {
+   display: block;
+   margin: 10px 0 0 0;
+   color: $color-text;
+  }
+ }
+}
+
+.course-postpartum-bridal {
+ .course-list-item {
+  font-size: 2rem;
+  .course-yen {
+   font-size: 1.4rem;
+  }
+ }
+}
+
+.non-supplement {
+ .course-explain {
+  margin: 30px 0 0 0 !important;
+ }
 }
 
 .course-supplement {
@@ -704,6 +744,10 @@ body {
  border: 1px solid $purple;
  padding: 10px;
  margin: 50px 0 0 0;
+ position: absolute;
+ bottom: 20px;
+ left: 20px;
+ width: calc(100% - 40px);
 }
 
 .course-supplement-item {
@@ -811,6 +855,97 @@ body {
  }
 }
 
+// よくある質問
+.faq {
+ &.section-box {
+  padding: 0;
+ }
+}
+
+.faq-h3 {
+ font-size: 2.4rem;
+ letter-spacing: 1px;
+ font-weight: bold;
+ color: $purple;
+ display: flex;
+ align-items: center;
+ margin: 0 0 30px 0;
+}
+
+.faq-list-box {
+ &:not(:first-child) {
+  margin: 50px 0 0 0;
+ }
+}
+
+.faq-title-icon {
+ margin: 0 10px 0 0;
+}
+
+.faq-item {
+ &:not(:first-child) {
+  margin: 20px 0 0 0;
+ }
+
+ background: $white;
+ border-radius: 5px;
+}
+
+.faq-question {
+ font-size: 1.8rem;
+ font-weight: bold;
+ letter-spacing: 1px;
+ padding: 20px 60px 20px 30px;
+ width: 100%;
+ background: none;
+ border: none;
+ cursor: pointer;
+ position: relative;
+ text-align: left;
+
+ &::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 30px;
+  transition: transform 0.3s ease;
+  width: 20px;
+  height: 20px;
+  border-right: 3px solid $color-text;
+  border-top: 3px solid $color-text;
+  transform: rotate(135deg) translate(-50%, 0);
+ }
+
+ &.active {
+  &::before {
+   transform: rotate(-45deg);
+  }
+ }
+}
+
+.faq-answer {
+ max-height: 0;
+ overflow: hidden;
+ transition: max-height 0.3s ease;
+ padding: 0 30px;
+
+ p {
+  margin: 0 0 20px 0;
+  font-size: 1.6rem;
+ }
+}
+
+// お問い合わせ
+.contact {
+ background: $red;
+}
+
+.contact-intro {
+ font-size: 1.4rem;
+ color: $white;
+ margin: 0 0 30px 0;
+}
+
 @media screen and (max-width: 1319px) {
  .h2-title {
   font-size: 9rem;
@@ -870,6 +1005,35 @@ body {
 
   &:nth-child(2) {
    width: calc(100% - 318px);
+  }
+ }
+
+ // よくある質問
+ .faq-h3 {
+  font-size: 2rem;
+ }
+
+ .faq-title-icon {
+  width: 30px;
+  height: 30px;
+ }
+
+ .faq-question {
+  font-size: 1.6rem;
+  padding: 20px 40px 20px 20px;
+
+  &::before {
+   width: 14px;
+   height: 14px;
+   right: 20px;
+  }
+ }
+
+ .faq-answer {
+  padding: 0 20px;
+
+  p {
+   font-size: 1.4rem;
   }
  }
 }
@@ -1208,6 +1372,11 @@ body {
   .course-count {
    font-size: 1.6rem;
   }
+
+  &::before {
+   top: 50%;
+   transform: translate(0, -50%);
+  }
  }
 
  .course-attention {
@@ -1231,6 +1400,16 @@ body {
    width: 12px;
    height: 11px;
    top: 3px;
+  }
+ }
+
+ .course-postpartum-bridal {
+  font-size: 1.6rem;
+
+  .course-list-item {
+   .course-yen {
+    font-size: 1.2rem;
+   }
   }
  }
 
@@ -1276,6 +1455,19 @@ body {
   height: auto;
   margin: 0 0 50px 0;
  }
+
+ // よくある質問
+ .faq-h3 {
+  align-items: flex-start;
+ }
+
+ .faq-question {
+  &::before {
+   width: 10px;
+   height: 10px;
+   border-width: 2px;
+  }
+ }
 }
 
 @media screen and (max-width: 425px) {
@@ -1300,5 +1492,87 @@ body {
 
  .mv-btn-box {
   font-size: 2rem;
+ }
+}
+
+@media screen and (max-width: 374px) {
+ .h2-title {
+  font-size: 4rem;
+ }
+
+ .h2-num {
+  font-size: 2rem;
+ }
+
+ .h2-jp {
+  font-size: 1.6rem;
+ }
+
+ .h3-title {
+  font-size: 1.8rem;
+ }
+
+ .catch-copy {
+  font-size: 2.6rem;
+ }
+
+ .catch-copy-sub {
+  font-size: 1.8rem;
+ }
+
+ .mv-btn-box {
+  font-size: 1.6rem;
+ }
+
+ .header-menu-btn-box {
+  font-size: 1.6rem;
+ }
+
+ .appeal-title {
+  font-size: 2rem;
+ }
+
+ .appeal-btn-box {
+  font-size: 1.6rem;
+ }
+
+ .course-card {
+  padding: 10px 10px 70px 10px;
+
+  &.non-supplement {
+   padding: 10px;
+  }
+ }
+
+ .course-list-item {
+  font-size: 2.4rem;
+
+  .course-yen {
+   font-size: 1.4rem;
+   margin: 0 3px 0 0;
+  }
+
+  .course-count {
+   font-size: 1.4rem;
+  }
+ }
+
+ .course-supplement {
+  width: calc(100% - 20px);
+  left: 10px;
+  bottom: 10px;
+ }
+
+ .faq-h3 {
+  font-size: 1.8rem;
+ }
+
+ .faq-title-icon {
+  width: 26px;
+  height: 26px;
+ }
+
+ .faq-question {
+  font-size: 1.4rem;
  }
 }

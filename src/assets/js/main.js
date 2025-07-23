@@ -21,3 +21,26 @@ window.addEventListener('scroll', function () {
   header.classList.remove('fixed');
  }
 });
+
+// FAQのトグル設定
+document.addEventListener('DOMContentLoaded', function () {
+ const questions = document.querySelectorAll('.faq-question');
+
+ questions.forEach((question) => {
+  question.addEventListener('click', function () {
+   const answer = this.nextElementSibling;
+   const isActive = this.classList.contains('active');
+
+   // すべて閉じる（アコーディオン型にしたい場合）
+   questions.forEach((q) => {
+    q.classList.remove('active');
+    q.nextElementSibling.style.maxHeight = null;
+   });
+
+   if (!isActive) {
+    this.classList.add('active');
+    answer.style.maxHeight = answer.scrollHeight + 'px';
+   }
+  });
+ });
+});
