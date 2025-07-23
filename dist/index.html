@@ -459,7 +459,7 @@
       <span class="h2-jp">体験予約・お問い合わせ</span>
      </h2>
      <p class="contact-intro">体験のお申し込み、カウンセリングなど、お気軽にお問い合わせください。</p>
-     <form class="c-form" onsubmit="handleSubmit(event)">
+     <form id="contactForm" action="https://script.google.com/macros/s/AKfycbzj0xXQgTSALhzq-vxJuqGqov137ff1X-dogcp3PgR4LQKlGgRGMg8uQ9-RsCAit8Me/exec" method="post" target="hidden_iframe">
       <div class="c-form__item">
        <label class="c-form__label" for="field-name">お名前（フルネーム）<span class="c-form__required">必須</span></label>
        <input name="name" class="c-form__input" id="field-name" placeholder="未来　太郎" type="text" required="required" />
@@ -552,40 +552,16 @@
     </div>
    </section>
   </main>
+  <iframe name="hidden_iframe" id="hidden_iframe" style="display: none"></iframe>
   <script>
-   function handleSubmit(event) {
-    event.preventDefault(); // ページリロード防止
+   const form = document.getElementById('contactForm');
+   const iframe = document.getElementById('hidden_iframe');
 
-    const formData = {
-     name: document.querySelector('[name="name"]').value,
-     kana: document.querySelector('[name="kana"]').value,
-     email: document.querySelector('[name="email"]').value,
-     tel: document.querySelector('[name="tel"]').value,
-     gender: document.querySelector('[name="gender"]:checked')?.value || '', // ←修正
-     age: document.querySelector('[name="age"]').value,
-     kind: document.querySelector('[name="kind"]:checked')?.value || '', // ←修正
-     message: document.querySelector('[name="message"]').value,
-    };
-
-    fetch('https://script.google.com/macros/s/AKfycbzhIjVyaedqcagTmTb17f4JaNWNOV0N_Al2fyCBa04PKqT3Paso6VjzCJUfWJIyvgTO/exec', {
-     method: 'POST',
-     body: JSON.stringify(formData),
-     headers: {
-      'Content-Type': 'application/json',
-     },
-    })
-     .then((response) => {
-      if (response.ok) {
-       window.location.href = '/thanks.html';
-      } else {
-       alert('送信に失敗しました。');
-      }
-     })
-     .catch((error) => {
-      console.error(error);
-      alert('送信中にエラーが発生しました。');
-     });
-   }
+   iframe.addEventListener('load', () => {
+    // 送信完了後にiframeが読み込み完了したら実行される
+    alert('送信が完了しました。ありがとうございます！');
+    form.reset(); // フォームをリセット
+   });
   </script>
  </body>
  <script src="/js/main.js"></script>
