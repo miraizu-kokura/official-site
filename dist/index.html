@@ -37,10 +37,6 @@
    })(document);
   </script>
  </head>
- <script type="text/javascript">
-  let submitted = false;
- </script>
- <iframe name="hidden_iframe" id="hidden_iframe" style="display: none" onload="if(submitted){window.location='/thanks.html';}"></iframe>
  <body class="main-body">
   <header class="header">
    <h1 class="header-logo">
@@ -463,22 +459,22 @@
       <span class="h2-jp">体験予約・お問い合わせ</span>
      </h2>
      <p class="contact-intro">体験のお申し込み、カウンセリングなど、お気軽にお問い合わせください。</p>
-     <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfXNWluvF9hJ1hVoGwj-iNKSPpqrZXDKyLmn9TIe74caLCZQw/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;" class="c-form" class="c-form">
+     <form class="c-form" onsubmit="handleSubmit(event)">
       <div class="c-form__item">
        <label class="c-form__label" for="field-name">お名前（フルネーム）<span class="c-form__required">必須</span></label>
-       <input name="entry.1734008620" class="c-form__input" id="field-name" placeholder="未来　太郎" type="text" required="required" />
+       <input name="name" class="c-form__input" id="field-name" placeholder="未来　太郎" type="text" required="required" />
       </div>
       <div class="c-form__item">
        <label class="c-form__label" for="field-kana">お名前（かな）<span class="c-form__required">必須</span></label>
-       <input name="entry.260144117" class="c-form__input" id="field-kana" placeholder="みらい　たろう" type="text" required="required" />
+       <input name="kana" class="c-form__input" id="field-kana" placeholder="みらい　たろう" type="text" required="required" />
       </div>
       <div class="c-form__item">
        <label class="c-form__label" for="field-kana">性別<span class="c-form__required">必須</span></label>
-       <input name="entry.598447434" class="c-form__input" id="field-sex" type="radio" name="sex" value="male" checked />男性 <input class="c-form__input" id="field-sex" type="radio" name="sex" value="female" />女性
+       <input name="gender" class="c-form__input" id="field-gender-male" type="radio" value="male" checked />男性 <input class="c-form__input" id="field-gender-female" type="radio" value="female" />女性
       </div>
       <div class="c-form__item">
        <label class="c-form__label" for="field-age">年齢<span class="c-form__required">必須</span></label>
-       <select name="entry.223100860">
+       <select name="age">
         <option value="18under">18歳以下</option>
         <option value="19">19歳</option>
         <option value="20">20歳</option>
@@ -531,19 +527,23 @@
       </div>
       <div class="c-form__item">
        <label class="c-form__label" for="field-mail">メールアドレス<span class="c-form__required">必須</span></label>
-       <input name="entry.846158854" class="c-form__input" id="field-mail" placeholder="sample@gmail.com" type="email" required="required" />
+       <input name="email" class="c-form__input" id="field-mail" placeholder="sample@gmail.com" type="email" required="required" />
       </div>
       <div class="c-form__item">
        <label class="c-form__label" for="field-tel">電話番号<span class="c-form__required">必須</span></label>
-       <input name="entry.376489614" class="c-form__input" id="field-tel" placeholder="00012345678" type="text" required="required" />
+       <input name="tel" class="c-form__input" id="field-tel" placeholder="00012345678" type="text" required="required" />
       </div>
       <div class="c-form__item">
-       <label class="c-form__label" for="field-content">お問い合わせ内容<span class="c-form__required">必須</span></label>
-       <input name="entry.1554247335" class="c-form__input" id="field-content" type="radio" name="contact-content" value="counseling" checked />カウンセリング予約のみ <input class="c-form__input" id="field-counseling-experience" type="radio" name="contact-content" value="female" />カウンセリングと体験予約 <input class="c-form__input" id="field-other" type="radio" name="contact-content" value="female" />その他
+       <input name="kind" id="field-kind-counseling" type="radio" value="counseling" checked />
+       <label for="field-kind-counseling">カウンセリング予約のみ</label>
+       <input name="kind" id="field-kind-experience" type="radio" value="experience" />
+       <label for="field-kind-experience">カウンセリングと体験予約</label>
+       <input name="kind" id="field-kind-other" type="radio" value="other" />
+       <label for="field-kind-other">その他</label>
       </div>
       <div class="c-form__item">
        <label class="c-form__label" for="field-message">お問い合わせ内容詳細</label>
-       <textarea name="entry.918214343" class="c-form__input" id="field-message" placeholder="お問い合わせ内容"></textarea>
+       <textarea name="message" class="c-form__input" id="field-message" placeholder="お問い合わせ内容"></textarea>
       </div>
       <div class="c-form__submit">
        <button type="submit">送信する</button>
@@ -552,6 +552,41 @@
     </div>
    </section>
   </main>
+  <script>
+   function handleSubmit(event) {
+    event.preventDefault(); // ページリロード防止
+
+    const formData = {
+     name: document.querySelector('[name="name"]').value,
+     kana: document.querySelector('[name="kana"]').value,
+     email: document.querySelector('[name="email"]').value,
+     tel: document.querySelector('[name="tel"]').value,
+     gender: document.querySelector('[name="gender"]:checked')?.value || '', // ←修正
+     age: document.querySelector('[name="age"]').value,
+     kind: document.querySelector('[name="kind"]:checked')?.value || '', // ←修正
+     message: document.querySelector('[name="message"]').value,
+    };
+
+    fetch('https://script.google.com/macros/s/AKfycbzhIjVyaedqcagTmTb17f4JaNWNOV0N_Al2fyCBa04PKqT3Paso6VjzCJUfWJIyvgTO/exec', {
+     method: 'POST',
+     body: JSON.stringify(formData),
+     headers: {
+      'Content-Type': 'application/json',
+     },
+    })
+     .then((response) => {
+      if (response.ok) {
+       window.location.href = '/thanks.html';
+      } else {
+       alert('送信に失敗しました。');
+      }
+     })
+     .catch((error) => {
+      console.error(error);
+      alert('送信中にエラーが発生しました。');
+     });
+   }
+  </script>
  </body>
  <script src="/js/main.js"></script>
 </html>
