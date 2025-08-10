@@ -90,7 +90,7 @@ body {
   left: 0;
   width: 20px;
   height: 20px;
-  background: url('images/list_icon.svg') no-repeat center center;
+  background: url('../images/list_icon.svg') no-repeat center center;
   background-size: contain;
  }
 
@@ -364,7 +364,7 @@ body {
  width: 100vw;
  height: 64vh;
  max-height: 800px;
- background: url('images/mv_pc.jpg') no-repeat center bottom;
+ background: url('../images/mv_pc.jpg') no-repeat center bottom;
  background-size: cover;
  position: relative;
  z-index: 0;
@@ -669,7 +669,7 @@ body {
   left: 0;
   width: 20px;
   height: 19px;
-  background: url('images/list_icon_purple.svg') no-repeat center center;
+  background: url('../images/list_icon_purple.svg') no-repeat center center;
   background-size: contain;
  }
 
@@ -765,7 +765,7 @@ body {
   left: 0;
   width: 20px;
   height: 19px;
-  background: url('images/list_icon_purple.svg') no-repeat center center;
+  background: url('../images/list_icon_purple.svg') no-repeat center center;
   background-size: contain;
  }
 
@@ -1785,7 +1785,7 @@ footer {
 
 @media screen and (max-width: 425px) {
  .main-visual {
-  background: url('images/mv_sp.jpg') no-repeat center center;
+  background: url('../images/mv_sp.jpg') no-repeat center center;
   background-size: cover;
   height: 517px;
  }
