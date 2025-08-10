@@ -68,6 +68,8 @@ jobs:
      run: npm ci
 
    - name: Build site for Production
+     env:
+      NODE_ENV: production
      run: npm run build
 
    - name: Upload artifact for GitHub Pages
