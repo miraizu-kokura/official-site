@@ -166,7 +166,7 @@
        <ul class="miraizu-list">
         <li class="miraizu-list-item">女性おひとり様でも、安心して通いやすい空間をデザイン</li>
         <li class="miraizu-list-item">確実な実績を積んできたトレーナーが、あなたのニーズに幅広く対応</li>
-        <li class="miraizu-list-item">様々なライフイベントに寄り添った、真の寄り添いあパーソナル</li>
+        <li class="miraizu-list-item">様々なライフイベントに寄り添った、真の寄り添うパーソナル</li>
        </ul>
        <div class="miraizu-supplement-box">
         <h4 class="h4-title">みなさまが直面する可能性のある、<br class="is-sp" />様々なライフイベント</h4>
@@ -462,7 +462,7 @@
       <span class="h2-jp">体験予約・お問い合わせ</span>
      </h2>
      <p class="contact-intro">体験のお申し込み、カウンセリングなど、お気軽にお問い合わせください。</p>
-     <form id="contactForm" action="https://script.google.com/macros/s/AKfycbw9wfSj_mNovwpj691XydSmEPjWh0UDC69tdMzxeGLXhIuiZtHJjUIBdEoHCgK6rOtb/exec" method="post" target="hidden_iframe" class="contact-form">
+     <form id="contactForm" action="https://script.google.com/macros/s/AKfycbxl29i1lnH961C9_av82nBKxhZzbz41q0FmhtCilf0Wt58Cscmcq8WWmMGPLnTOmGSq/exec" method="post" target="hidden_iframe" class="contact-form">
       <div class="c-form__item">
        <label class="c-form__label" for="field-name">お名前（フルネーム）<span class="c-form__required">※必須</span></label>
        <input name="name" class="c-form__input" id="field-name" placeholder="未来　太郎" type="text" required="required" />
@@ -553,8 +553,48 @@
        <input name="firstDate" class="c-form__input" id="field-firstDate" type="date" required="required" />
       </div>
       <div class="c-form__item">
+       <label class="c-form__label" for="field-firstTime">第一希望時間<span class="c-form__required">※必須</span></label>
+       <select name="firstTime" class="c-form__select" required="required">
+        <option value="終日（10:00-21:00）">終日（10:00-21:00）</option>
+        <option value="午後（12:00-18:00）">午後（12:00-18:00）</option>
+        <option value="夜（18:00-21:00）">夜（18:00-21:00）</option>
+        <option value="10:00">10:00</option>
+        <option value="11:00">11:00</option>
+        <option value="12:00">12:00</option>
+        <option value="13:00">13:00</option>
+        <option value="14:00">14:00</option>
+        <option value="15:00">15:00</option>
+        <option value="16:00">16:00</option>
+        <option value="17:00">17:00</option>
+        <option value="18:00">18:00</option>
+        <option value="19:00">19:00</option>
+        <option value="20:00">20:00</option>
+        <option value="21:00">21:00</option>
+       </select>
+      </div>
+      <div class="c-form__item">
        <label class="c-form__label" for="field-secondDate">第二希望日</label>
        <input name="secondDate" class="c-form__input" id="field-secondDate" type="date" />
+      </div>
+      <div class="c-form__item">
+       <label class="c-form__label" for="field-secondTime">第二希望時間</label>
+       <select name="secondTime" class="c-form__select">
+        <option value="終日（10:00-21:00）">終日（10:00-21:00）</option>
+        <option value="午後（12:00-18:00）">午後（12:00-18:00）</option>
+        <option value="夜（18:00-21:00）">夜（18:00-21:00）</option>
+        <option value="10:00">10:00</option>
+        <option value="11:00">11:00</option>
+        <option value="12:00">12:00</option>
+        <option value="13:00">13:00</option>
+        <option value="14:00">14:00</option>
+        <option value="15:00">15:00</option>
+        <option value="16:00">16:00</option>
+        <option value="17:00">17:00</option>
+        <option value="18:00">18:00</option>
+        <option value="19:00">19:00</option>
+        <option value="20:00">20:00</option>
+        <option value="21:00">21:00</option>
+       </select>
       </div>
       <div class="c-form__item">
        <label class="c-form__label" for="field-message">お問い合わせ内容詳細</label>
