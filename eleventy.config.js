@@ -5,6 +5,11 @@ module.exports = function (eleventyConfig) {
  eleventyConfig.addPassthroughCopy({ 'src/assets/css': 'css' });
  eleventyConfig.addPassthroughCopy({ 'src/assets/js': 'js' });
 
+ // 本番だけSearch Console用HTMLをコピー
+ if (isProd) {
+  eleventyConfig.addPassthroughCopy('src/googlea90e67b64e74ba4a.html');
+ }
+
  return {
   dir: {
    input: 'src',
